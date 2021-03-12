@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seb Music Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+   
+</head>
+
+<body class="bg-dark" id="body">
+    
+<!-- Modal LOGIN -->   
+    <div class="modal bg-dark" id="modalLogin">
+        <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Connectez-vous</h5>
+				</div>
+				<div class="modal-body">
+					<form action="" class="text-center" id="formLogin">
+						<input type="text" class="m-2" placeholder="email ou pseudo" id="myID"><br>
+						<input type="password" class="m-2" placeholder="mot de passe" id="myPassword"><br>
+						<input type="submit" class="btn btn-danger m-2" value="Connexion">
+					</form>
+				</div>
+                <div class="modal-footer">
+                    <div>Nouvel(le) utilisateur(trice) ? Soyez le bienvenue</div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnRegister">Inscription</button>
+                </div>
+			</div>
+		</div>
+    </div>
+
+<!-- Modal REGISTER -->
+<div class="modal bg-dark" id="modalRegister">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Inscription</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnCloseRegister"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="text-center" id="formRegister">
+                    <input type="email" class="m-2" placeholder="votre email" id="myEmail"><br>
+                    <input type="text" class="m-2" placeholder="pseudo désiré" id="myPseudo"><br>
+                    <input type="password" class="m-2" placeholder="mot de passe" id="myPassword1"><br>
+                    <input type="password" class="m-2" placeholder="verif mot de passe" id="myPassword2"><br>
+                    <input type="submit" class="btn btn-danger m-2" value="Inscription">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal PHOTO PROFIL -->
+    <div class="modal bg-dark" id="modalProfil">
+        <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header  justify-content-center">
+					<h5 class="modal-title">Choisissez votre image de profil</h5>
+				</div>
+				<div class="modal-body" id="iconProfil">
+						<img src="src/Profil/01.png" class="w-25 icon" alt="icon01" id="icon01">
+                        <img src="src/Profil/02.png" class="w-25 icon" alt="icon02" id="icon02">
+                        <img src="src/Profil/03.png" class="w-25 icon" alt="icon03" id="icon03">
+                        <img src="src/Profil/04.png" class="w-25 icon" alt="icon04" id="icon04">
+                        <img src="src/Profil/05.png" class="w-25 icon" alt="icon05" id="icon05">
+                        <img src="src/Profil/06.png" class="w-25 icon" alt="icon06" id="icon06">
+                        <img src="src/Profil/07.png" class="w-25 icon" alt="icon07" id="icon07">
+                        <img src="src/Profil/08.png" class="w-25 icon" alt="icon08" id="icon08">
+                        <img src="src/Profil/09.png" class="w-25 icon" alt="icon09" id="icon09">
+                        <img src="src/Profil/10.png" class="w-25 icon" alt="icon10" id="icon10">
+                        <img src="src/Profil/11.png" class="w-25 icon" alt="icon11" id="icon11">
+                        <img src="src/Profil/12.png" class="w-25 icon" alt="icon12" id="icon12">
+				</div>
+			</div>
+		</div>
+    </div>
+
+<!-- Modal New Playlist -->   
+<div class="modal" id="modalNewPlaylist">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nouvelle Playlist</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnCloseModalNewPlaylist"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="text-center" id="formNewPlaylist">
+                    <input type="text" class=" w-100 m-2" placeholder="nom de la nouvelle playlist" id="inputNamePlaylist"><br>
+                    <input type="submit" class="btn btn-danger m-2" value="Créer">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Mes Playlists --> 
+<div class="modal" id="modalMyPlaylist">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajouter ce titre à la playlist :</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btnCloseModalMyPlaylist"></button>
+            </div>
+            <div class="modal-body" id="myPlaylist">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnNewPlaylist">Créer une nouvelle playlist</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container-sm bg-dark ">
+
+<!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <h2 class="navbar-brand">Seb Music Player</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav float-end">
+                <a class="nav-link" href="#accueil" id="accueilMenu">Accueil</a>
+                <a class="nav-link" href="#profil">Profil</a>
+                <a class="nav-link" href="#playlist">Playlist</a>
+                <form class="d-flex" id="formSearch">
+                    <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search" id="mySearch">
+                    <button class="btn btn-outline-success" type="submit">Trouve</button>
+                </form>
+                <button class="btn btn-danger ms-5" id="deconnex">Deconnexion</button>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    
+    <section id="accueil">
+        
+    </section>
+    
+<!-- Player -->
+    <div class="row fixed-bottom justify-content-center bg-dark">
+        <img src="src/Backward-icon.png" class="btnIcon" alt="bouton precedent" id="btnBack">
+        <img src="src/Forward-icon.png" class="btnIcon" alt="bouton suivant" id="btnNext">
+        <img src="src/Play-icon.png" class="btnIcon" alt="bouton lecture" id="btnPlay">
+        <img src="src/Pause-icon.png" class="btnIcon" alt="bouton pause" id="btnPause">
+    </div>
+
+</div>
+
+<script src="js.js"></script>       
+
+</body>
+</html>
